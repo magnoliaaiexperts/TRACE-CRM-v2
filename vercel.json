@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "name": "trace-aerial-solutions",
+  "builds": [
+    {
+      "src": "index.html",
+      "use": "@vercel/static"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/send-email",
+      "destination": "/api/send-email.js"
+    }
+  ],
+  "env": {
+    "SENDGRID_API_KEY": "@sendgrid_api_key",
+    "DOMAIN": "traceaerialsolutions.com",
+    "EMAIL_FROM": "noreply@traceaerialsolutions.com",
+    "EMAIL_TO": "leads@traceaerialsolutions.com"
+  },
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/.*", "dest": "/index.html" }
+  ]
+}
